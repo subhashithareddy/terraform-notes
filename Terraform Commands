@@ -12,7 +12,8 @@ terraform output --> prints parameters mentioned output.tf
 
 Terraform State:
 ----------------
-When you applied your configuration, Terraform wrote data into a file called terraform.tfstate. Terraform stores the IDs and properties of the resources it manages in this file, so that it can update or destroy those resources going forward.
+When you applied your configuration, Terraform wrote data into a file called terraform.tfstate. 
+Terraform stores the IDs and properties of the resources it manages in this file, so that it can update or destroy those resources going forward.
 The Terraform state file is the only way Terraform can track which resources it manages, and often contains sensitive information.
 
 main.tf: main terraform configutation file:
