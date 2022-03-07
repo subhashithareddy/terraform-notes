@@ -1,0 +1,64 @@
+terraform init --> downloads providers and creates lock file. In future tearraform only uses same provider verions mentioned in lockfiles
+terraform fmt --> formats the code, for easy underastanding
+terraform validate --> validates code
+terraform plan --> highlight the changers that we are making to infrastructure
+terraform apply --> provision the changes to infrastructure and creates terraform.tfstate file
+terraform show --> Inspect the current state, lists the resource details in state file
+terraform state --> for advanced state management
+    ex: terraform state list --> subcommand to list of the resources in your project's state
+terraform destroy -->terminates resources managed by your Terraform state.
+                      It does not destroy resources running elsewhere that are not managed by the current Terraform project.
+terraform output --> prints parameters mentioned output.tf 
+
+Terraform State:
+----------------
+When you applied your configuration, Terraform wrote data into a file called terraform.tfstate. Terraform stores the IDs and properties of the resources it manages in this file, so that it can update or destroy those resources going forward.
+The Terraform state file is the only way Terraform can track which resources it manages, and often contains sensitive information.
+
+main.tf: main terraform configutation file:
+--------
+                               terraform {
+                                    required_providers {
+                                      aws = {
+                                        source  = "hashicorp/aws"
+                                        version = "~> 3.27"
+                                      }
+                                     }
+
+                                    required_version = ">= 1.1.0"
+                               }
+
+                                   provider "aws" {
+                                    profile = "default"
+                                    region  = "us-west-2"
+                                   }
+
+                                  resource "aws_instance" "app_server" {
+                                    ami           = "ami-08d70e59c07c61a3a"
+                                    instance_type = "t2.micro"
+
+                                    tags = {
+                                      Name = var.instance_name
+                                    }
+                                  }
+
+variables.tf: variables file, main.tf is going to refer to this file for variables
+------------                            
+                            variable "instance_name" {
+                              description = "Value of the Name tag for the EC2 instance"
+                              type        = string
+                              default     = "ExampleAppServerInstance"
+                            }
+
+outputs.tf :  terraform output file, this file is automatically called by main.tf. terraform output-->(command used to print parameters)
+------------
+                                output "instance_id" {
+                                  description = "ID of the EC2 instance"
+                                  value       = aws_instance.app_server.id
+                                }
+
+                                output "instance_public_ip" {
+                                  description = "Public IP address of the EC2 instance"
+                                  value       = aws_instance.app_server.public_ip
+                                }
+
