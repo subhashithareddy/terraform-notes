@@ -9,6 +9,8 @@ or anywhere else on disk), or from external sources like the Terraform Registry.
 
 meta-arguments:
 ---------------
+The Terraform language defines several meta-arguments, which can be used with any resource type to change the behavior of resources
+
 depends_on --> for specifying hidden dependencies
 count --> for creating multiple resource instances according to a count
 for_each --> to create multiple instances according to a map, or set of strings
