@@ -4,3 +4,14 @@ sub-directories are treated as separate modules.
 A Terraform module can use module calls to explicitly include other modules into the configuration
 These child modules can come from local directories (nested in the parent module's directory, 
 or anywhere else on disk), or from external sources like the Terraform Registry.
+
+
+
+meta-arguments:
+---------------
+depends_on --> for specifying hidden dependencies
+count --> for creating multiple resource instances according to a count
+for_each --> to create multiple instances according to a map, or set of strings
+provider --> for selecting a non-default provider configuration
+lifecycle --> for lifecycle customizations
+provisioner --> for taking extra actions after resource creation
