@@ -1,5 +1,20 @@
+Data sources:
+-------------
+Data sources, which are a special type of resource used only for looking up information.
 
-data sources, which are a special type of resource used only for looking up information.
+
+Expressions:
+------------
+Expressions within a Terraform module can access information about resources in the same module, and you can use that information to help configure other resources. 
+Use the <RESOURCE TYPE>.<NAME>.<ATTRIBUTE> syntax to reference a resource attribute in an expression.
+
+
+Local Resources:
+----------------
+While most resource types correspond to an infrastructure object type that is managed via a remote network API, t
+here are certain specialized resource types that operate only within Terraform itself, 
+calculating some results and saving those results in the state for future use.
+
 
 Meta-arguments:
 ---------------
