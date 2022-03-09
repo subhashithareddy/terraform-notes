@@ -6,10 +6,6 @@ These child modules can come from local directories (nested in the parent module
 or anywhere else on disk), or from external sources like the Terraform Registry.
 
 
-alias: Multiple Provider Configurations
------
-You can optionally define multiple configurations for the same provider, and select which one to use on a per-resource or per-module basis. 
-The primary reason for this is to support multiple regions for a cloud platform
 
 meta-arguments:
 ---------------
