@@ -1,4 +1,5 @@
 terraform init --> downloads providers and creates lock file. In future tearraform only uses same provider verions mentioned in lockfiles
+terraform init -upgrade --> used to upgrade provider version. Provider version and checksums also updated in lock file
 terraform fmt --> formats the code, for easy underastanding
 terraform validate --> validates code
 terraform plan --> highlight the changers that we are making to infrastructure
