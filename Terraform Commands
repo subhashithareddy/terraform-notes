@@ -1,3 +1,14 @@
+Modules:
+-------
+Modules are collection of .tf files in a directory. Top level configuration files in a directory are only treated as modules.
+sub-directories are treated as separate modules.
+
+A Terraform module can use module calls to explicitly include other modules into the configuration
+These child modules can come from local directories (nested in the parent module's directory, 
+or anywhere else on disk), or from external sources like the Terraform Registry.
+
+
+
 terraform init --> downloads providers and creates lock file. In future tearraform only uses same provider verions mentioned in lockfiles
 terraform init -upgrade --> used to upgrade provider version. Provider version and checksums also updated in lock file
 terraform fmt --> formats the code, for easy underastanding
